@@ -11,6 +11,7 @@ body {
     width: 80%;
     margin: auto;
     overflow: hidden;
+    text-align: right;	
 }
 
 header {
@@ -21,7 +22,7 @@ header {
     border-bottom: #77b300 3px solid;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 header img.profile-photo {
@@ -55,6 +56,7 @@ header #branding {
 header nav {
     float: right;
     margin-top: 10px;
+    text-align: right;
 }
 
 header .highlight, header .current a {
