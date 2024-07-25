@@ -1,86 +1,42 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NESSIRI SOUFYANE</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Clé CCP Algérie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="your-photo.jpg" alt="صورتك" class="profile-photo">		
-            <h1>أستاذ سفيان نصيري</h1>
-            <p>أستاذ التاريخ والجغرافيا في التعليم الثانوي</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">عنّي</a></li>
-                    <li><a href="#courses">الدروس</a></li>
-                    <li><a href="#resources">الموارد التعليمية</a></li>
-                    <li><a href="#contact">اتصل بي</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <div class="language-select">
+            <select id="languageSwitcher">
+                <option value="fr">Français</option>
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+            </select>
         </div>
-    </header>
-
-    <section id="about">
-        <div class="container">
-            <h2>عنّي</h2>
-            <p>أنا أستاذ سفيان نصيري، حاصل على درجة الماستر في تاريخ المقاومة والحركة الوطنية الجزائرية من جامعة الطاهري محمد بشار، بالجزائر. أتمتع بخبرة 4 سنوات في تدريس التاريخ والجغرافيا للمرحلة الثانوية.</p>
+        <div class="header" id="headerText">Clé CCP Algérie</div>
+        <div class="input-container">
+            <input type="text" id="ccpNumber" placeholder="" maxlength="10" inputmode="numeric" pattern="[0-9]*">
+            <button class="close-btn">✖</button>
         </div>
-    </section>
-
-    <section id="courses">
-        <div class="container">
-            <h2>الدروس</h2>
-            <ul>
-                <li>التاريخ القديم</li>
-                <li>الجغرافيا السياسية</li>
-                <li>تاريخ العصور الوسطى</li>
-                <li>الجغرافيا الاقتصادية</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="resources">
-        <div class="container">
-            <h2>الموارد التعليمية</h2>
-            <div class="resource-items">
-                <div class="resource-item">
-                    <h3>مقالة عن الثورة الفرنسية</h3>
-                    <p>مقالة شاملة عن الثورة الفرنسية وأثرها على العالم.</p>
-                    <a href="#" class="btn">تحميل</a>
-                </div>
-                <div class="resource-item">
-                    <h3>خريطة العالم السياسية</h3>
-                    <p>خريطة تفاعلية تعرض الحدود السياسية بين الدول.</p>
-                    <a href="#" class="btn">عرض</a>
-                </div>
+        <div class="error" id="error"></div>
+        <div class="results">
+            <div class="result-section">
+                <div class="result-label" id="ccpKeyLabel">🔑 Clé CCP</div>
+                <input type="text" id="ccpKeyResult" class="result-input" readonly>
+            </div>
+            <div class="result-section">
+                <div class="result-label" id="keyRIPLabel">🔑 Clé RIP</div>
+                <input type="text" id="keyRIPResult" class="result-input" readonly>
+            </div>
+            <div class="result-section">
+                <div class="result-label" id="ripLabel">RIP</div>
+                <input type="text" id="formattedRIPNumber" class="result-input" readonly>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <div class="container">
-            <h2>اتصل بي</h2>
-            <p>يمكنك التواصل معي عبر البريد الإلكتروني أو من خلال شبكات التواصل الاجتماعي.</p>
-            <ul class="social-icons">
-                <li><a href="https://www.facebook.com/NESSIRI"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://x.com/SoufyaneNessiri"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fab fa-github"></i></a></li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>حقوق النشر &copy; 2024. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
