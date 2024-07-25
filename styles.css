@@ -95,3 +95,23 @@ input[type="text"] {
 .language-select {
     margin-bottom: 10px;
 }
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 25px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.copy-btn:hover {
+    color: #007bff;
+}
