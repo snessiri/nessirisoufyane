@@ -1,193 +1,97 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #ffc107;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: #333;
-    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    text-align: right;	
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    position: relative;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #77b300 3px solid;
+.header {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #ffecb3;
+}
+
+.result-input {
+    background-color: #ffecb3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: calc(100% - 22px);
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.error {
+    color: red;
+    margin: 10px 0;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.result-section {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-}
-
-header img.profile-photo {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
-
-header a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-header ul {
-    padding: 0;
-    list-style: none;
-}
-
-header li {
-    display: inline;
-    padding: 0 20px 0 20px;
-}
-
-header #branding {
-    float: left;
-}
-
-header nav {
-    float: right;
-    margin-top: 10px;
-    text-align: right;
-}
-
-header .highlight, header .current a {
-    color: #77b300;
-    font-weight: bold;
-}
-
-header a:hover {
-    color: #ccc;
-    font-weight: bold;
-}
-
-section {
-    padding: 80px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-#about {
-    background: #f4f4f4;
-    text-align: right;
-    direction: rtl;
-    padding: 80px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-#courses {
-    background: #e2e2e2;
-	text-align: right;
-    direction: rtl;
-    padding: 80px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-#resources {
-    background: #f4f4f4;
-	text-align: right;
-    direction: rtl;
-    padding: 80px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-#contact {
-    background: #e2e2e2;
-	text-align: right;
-    direction: rtl;
-    padding: 80px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-ul.social-icons {
-    padding: 0;
-    list-style: none;
-    text-align: center;
-}
-
-ul.social-icons li {
-    display: inline;
-    margin: 0 10px;
-}
-
-ul.social-icons a {
-    color: #333;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-.resource-items {
-    display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
-.resource-item {
-    width: 45%;
-    margin-bottom: 20px;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.result-section .result-label {
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.resource-item h3 {
-    margin-top: 0;
-}
-
-.resource-item .btn {
-    display: inline-block;
-    padding: 10px 15px;
-    color: #fff;
-    background: #333;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-}
-
-@media(max-width: 768px) {
-    header nav {
-        float: none;
-        text-align: center;
-    }
-
-    header nav ul {
-        padding: 0;
-    }
-
-    header nav ul li {
-        display: block;
-        padding: 10px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header img.profile-photo {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .resource-item {
-        width: 100%;
-    }
+.language-select {
+    margin-bottom: 10px;
 }
