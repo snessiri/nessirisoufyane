@@ -101,3 +101,10 @@ window.onload = function() {
         document.getElementById("ccpNumber").placeholder = "Enter CCP number";
     }
 };
+
+function copyToClipboard() {
+    const textField = document.getElementById('formattedRIPNumber');
+    textField.select();
+    document.execCommand('copy');
+    alert('RIP copied to clipboard!');
+}
