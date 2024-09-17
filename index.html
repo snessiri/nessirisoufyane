@@ -1,45 +1,195 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clé CCP Algérie</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>صفحة الأستاذ الشخصية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            direction: rtl;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .profile-pic {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out; /* إضافة تأثير على الصورة */
+        }
+        .profile-pic:hover {
+            transform: scale(1.1); /* تكبير الصورة عند التحويم */
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+            transition: background-color 0.3s ease; /* تأثير على الروابط */
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            opacity: 0; /* بدء العنصر مخفي */
+            transform: translateY(20px); /* بدء العنصر من الأسفل */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* تأثير على الظهور */
+        }
+        section.show {
+            opacity: 1; /* اظهار العنصر */
+            transform: translateY(0); /* موضعه الصحيح */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+            padding-bottom: 80px; /* إضافة مساحة إضافية لتجنب تغطية الفوتر */
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 1000; /* لضمان ظهور الفوتر فوق المحتوى */
+        }
+        /* قواعد التصميم الاستجابي */
+        @media (max-width: 768px) {
+            .profile-pic {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                right: 10px;
+            }
+            header {
+                padding: 15px;
+            }
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                text-align: center;
+            }
+            .profile-pic {
+                position: static;
+                margin: 10px auto;
+                display: block;
+            }
+            nav {
+                flex-direction: column;
+            }
+        }
+        .contact-icons {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* لتنسيق الأيقونات أفقياً */
+            gap: 15px;
+            margin: 0; /* إزالة أي مسافات خارجية */
+        }
+        .contact-icons li {
+            display: inline;
+        }
+        .contact-icons a {
+            color: #333;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-icons a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <header data-aos="fade-down">
+        <h1>مرحبا بكم في صفحة الأستاذ - نصيري سفيان -</h1>
+        <img src="profile.jpg" alt="الصورة الشخصية" class="profile-pic">
+    </header>
+    <nav data-aos="fade-up">
+        <a href="#about">نبذة عني</a>
+        <a href="#experience">الخبرات</a>
+        <a href="#courses">المواد الدراسية</a>
+        <a href="#contact">التواصل</a>
+    </nav>
     <div class="container">
-        <div class="language-select">
-            <select id="languageSwitcher">
-                <option value="fr">Français</option>
-                <option value="ar">العربية</option>
-                <option value="en">English</option>
-            </select>
-        </div>
-        <div class="header" id="headerText">Clé CCP Algérie</div>
-        <div class="input-container">
-            <input type="text" id="ccpNumber" placeholder="" maxlength="10" inputmode="numeric" pattern="[0-9]*">
-            <button class="close-btn">✖</button>
-        </div>
-        <div class="error" id="error"></div>
-        <div class="results">
-            <div class="result-section">
-                <div class="result-label" id="ccpKeyLabel">🔑 Clé CCP</div>
-                <input type="text" id="ccpKeyResult" class="result-input" readonly>
-            </div>
-            <div class="result-section">
-                <div class="result-label" id="keyRIPLabel">🔑 Clé RIP</div>
-                <input type="text" id="keyRIPResult" class="result-input" readonly>
-            </div>
-            <div class="result-section">
-                <div class="result-label" id="ripLabel">RIP</div>
-                <input type="text" id="formattedRIPNumber" class="result-input" readonly>
-                              <button class="copy-btn" onclick="copyToClipboard()"><i class="fas fa-copy"></i></button>
-            </div>
-        </div>
-    </div>
+        <section id="about" data-aos="fade-up">
+            <h2>نبذة عني</h2>
+            <p>أنا أستاذ متخصص في تدريس التاريخ والجغرافيا للمرحلة الثانوية. لدي شغف في تسهيل التعليم وتحفيز الطلاب على حب المواد الدراسية من خلال أساليب تدريس حديثة.</p>
+        </section>
 
-    <script src="scripts.js"></script>
+        <section id="experience" data-aos="fade-up">
+            <h2>الخبرات</h2>
+            <ul>
+                <li>أستاذ التاريخ والجغرافيا لمدة 3 سنوات في التعليم الثانوي.</li>
+                <li>محاضر في المناسبات الوطنية.</li>
+                <li>ملم بتقنيات الحاسوب والتكنولجيات المتعلقة بها.</li>
+            </ul>
+        </section>
+
+        <section id="courses" data-aos="fade-up">
+            <h2>المواد الدراسية</h2>
+            <ul>
+                <li>تاريخ المقاومة والحركة الوطنية الجزائرية.</li>
+                <li>تاريخ أوروبا والعالم الإسلامي.</li>
+                <li>الجغرافيا البشرية والطبيعية.</li>
+            </ul>
+        </section>
+
+        <section id="contact" data-aos="fade-up">
+            <h2>التواصل</h2>
+            <ul class="contact-icons">
+                <li><a href="mailto:snessiri@gmail.com"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://www.facebook.com/NESSIRI"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://x.com/SoufyaneNessiri"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/nessiri_soufyane/"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
