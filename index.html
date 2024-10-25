@@ -1,197 +1,106 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة الأستاذ نصيري سفيان</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            direction: rtl;
-        }
-        header {
-            background-color: #0056b3;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        .profile-pic {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out; /* إضافة تأثير على الصورة */
-        }
-        .profile-pic:hover {
-            transform: scale(1.1); /* تكبير الصورة عند التحويم */
-        }
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-            text-align: center;
-            flex: 1;
-            min-width: 100px;
-            transition: background-color 0.3s ease; /* تأثير على الروابط */
-        }
-        nav a:hover {
-            background-color: #0056b3;
-        }
-        section {
-            padding: 20px;
-            margin: 10px;
-            background-color: white;
-            border-radius: 5px;
-            box-sizing: border-box;
-            opacity: 0; /* بدء العنصر مخفي */
-            transform: translateY(20px); /* بدء العنصر من الأسفل */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* تأثير على الظهور */
-        }
-        section.show {
-            opacity: 1; /* اظهار العنصر */
-            transform: translateY(0); /* موضعه الصحيح */
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-            padding-bottom: 80px; /* إضافة مساحة إضافية لتجنب تغطية الفوتر */
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            z-index: 1000; /* لضمان ظهور الفوتر فوق المحتوى */
-        }
-        /* قواعد التصميم الاستجابي */
-        @media (max-width: 768px) {
-            .profile-pic {
-                width: 60px;
-                height: 60px;
-                top: 10px;
-                right: 10px;
-            }
-            header {
-                padding: 15px;
-            }
-            nav a {
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                text-align: center;
-            }
-            .profile-pic {
-                position: static;
-                margin: 10px auto;
-                display: block;
-            }
-            nav {
-                flex-direction: column;
-            }
-        }
-        .contact-icons {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* لتنسيق الأيقونات أفقياً */
-            gap: 15px;
-            margin: 0; /* إزالة أي مسافات خارجية */
-        }
-        .contact-icons li {
-            display: inline;
-        }
-        .contact-icons a {
-            color: #333;
-            font-size: 20px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact-icons a:hover {
-            color: #0056b3;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nessiri Soufyane | History Teacher</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- رابط ملف CSS الخارجي -->
 </head>
-<body>
-    <header data-aos="fade-down">
-        <h1>مرحبا بكم في صفحة الأستاذ - نصيري سفيان -</h1>
-        <a href="https://snessiri.github.io/nessirisoufyane">
-            <img src="profile.jpg" alt="الصورة الشخصية" class="profile-pic">
-        </a>
-    </header>
-    <nav data-aos="fade-up">
-        <a href="#about">نبذة عني</a>
-        <a href="#experience">الخبرات</a>
-        <a href="#courses">المواد الدراسية</a>
-        <a href="#contact">التواصل</a>
-    </nav>
-    <div class="container">
-        <section id="about" data-aos="fade-up">
-            <h2>نبذة عني</h2>
-            <p>أنا أستاذ متخصص في تدريس التاريخ والجغرافيا للمرحلة الثانوية. لدي شغف في تسهيل التعليم وتحفيز الطلاب على حب المواد الدراسية من خلال أساليب تدريس حديثة.</p>
-        </section>
-
-        <section id="experience" data-aos="fade-up">
-            <h2>الخبرات</h2>
-            <ul>
-                <li>أستاذ التاريخ والجغرافيا لمدة 3 سنوات في التعليم الثانوي.</li>
-                <li>محاضر في المناسبات الوطنية.</li>
-                <li>ملم بتقنيات الحاسوب والتكنولجيات المتعلقة بها.</li>
-            </ul>
-        </section>
-
-        <section id="courses" data-aos="fade-up">
-            <h2>المواد الدراسية</h2>
-            <ul>
-                <li>تاريخ المقاومة والحركة الوطنية الجزائرية.</li>
-                <li>تاريخ أوروبا والعالم الإسلامي.</li>
-                <li>الجغرافيا البشرية والطبيعية.</li>
-            </ul>
-        </section>
-
-        <section id="contact" data-aos="fade-up">
-            <h2>التواصل</h2>
-            <ul class="contact-icons">
-                <li><a href="mailto:snessiri@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                <li><a href="https://www.facebook.com/NESSIRI"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://x.com/SoufyaneNessiri"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/nessiri_soufyane/"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </section>
+<body dir="rtl">
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">من أنا</a>
+      <a href="#experience">الخبرات</a>
+      <a href="#gallery">معرض الصور</a>
+      <a href="#contact">تواصل معي</a>
     </div>
-    <footer>
-        <p>جميع الحقوق محفوظة © 2024</p>
-    </footer>
+  </nav>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <img src="profile.png" alt="Profile Picture" class="profile-img">
+      <h1>نصيري سفيان</h1>
+      <p>أستاذ التاريخ والجغرافيا | في ثانوية الإخوة نهاري بلدية تبلبالة</p>
+      <p>نجعل التاريخ ينبض بالحياة في الفصل الدراسي</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>من أنا</h2>
+    <div class="about-grid">
+      <div class="about-content animate-on-scroll">
+        <p>مرحبًا! أنا نصيري سفيان، أستاذ تاريخ شغوف بتقديم الماضي بشكل حي لطلابي. لدي 4 سنوات من الخبرة في مجال التعليم، وأتخصص في إنشاء تجارب تعليمية مثيرة تربط بين الأحداث التاريخية والحياة المعاصرة.</p>
+        <div class="quote-box">فهم التاريخ ليس مجرد حفظ للتواريخ والحقائق؛ بل هو فهم للطبيعة البشرية والتعلم من الماضي المشترك لدينا.</div>
+        <p>أؤمن بأساليب التعليم التفاعلية التي تشجع على التفكير النقدي وتعزز التقدير العميق للمنظورات التاريخية. فصلي الدراسي هو مكان لا يتعلم فيه الطلاب التاريخ فقط، بل يعيشونه أيضًا.</p>
+      </div>
+      <div class="about-image animate-on-scroll">
+        <img alt="Professional portrait of Nessiri Soufyane in a classroom setting, wearing professional attire" height="600" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655" width="500">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h2>الخبرات المهنية</h2>
+    <div class="experience-timeline">
+      <div class="timeline-item animate-on-scroll">
+        <h3>أستاذ التاريخ والجغرافيا</h3>
+        <p>ثانوية الإخوة نهاري تبلبالة | من 2022 إلى اليوم</p>
+        <ul>
+          <li>تطوير منهج مبتكر للتاريخ العالمي والحضارات الحديثة.</li>
+          <li>قيادة مبادرات القسم في دمج التعليم الرقمي.</li>
+          <li>تنظيم فعاليات إعادة تمثيل التاريخ السنوية.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>لحظات الفصل</h2>
+    <div class="gallery">
+      <div class="gallery-item animate-on-scroll">
+        <img alt="Students engaged in interactive history lesson with ancient artifacts" height="300" src="https://images.unsplash.com/photo-1577896851231-70ef18881754" width="300">
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <img alt="Historical reenactment day with students in period costumes" height="300" src="https://images.unsplash.com/photo-1509062522246-3755977927d7" width="300">
+      </div>
+      <div class="gallery-item animate-on-scroll">
+        <img alt="Group discussion during World History seminar" height="300" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45" width="300">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>تواصل معي</h2>
+    <form class="contact-form animate-on-scroll">
+      <div class="form-group">
+        <label for="name">الاسم</label>
+        <input id="name" required type="text">
+      </div>
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" required type="email">
+      </div>
+      <div class="form-group">
+        <label for="subject">الموضوع</label>
+        <input id="subject" required type="text">
+      </div>
+      <div class="form-group">
+        <label for="message">الرسالة</label>
+        <textarea id="message" required rows="5"></textarea>
+      </div>
+      <button class="btn" type="submit">أرسل الرسالة</button>
+    </form>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/nessiri-soufyane" title="حساب لينكد إن"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/nessirihistory" title="حساب تويتر"><i class="fab fa-twitter"></i></a>
+      <a href="https://academia.edu/nessiri" title="حساب أكاديميا"><i class="fas fa-university"></i></a>
+    </div>
+  </section>
+  
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <script src="script.js"></script> <!-- رابط ملف JavaScript الخارجي -->
 </body>
 </html>
