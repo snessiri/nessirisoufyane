@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // إرسال البريد الإلكتروني باستخدام EmailJS
-    emailjs.send('service_0g43nok', 'template_uu3hchm', formData)
+    emailjs.send('service_fyqth4k', 'template_uu3hchm', formData)
   .then(response => {
     alert('تم إرسال الرسالة بنجاح!');
     console.log('استجابة الإرسال:', response); // طباعة استجابة الإرسال
