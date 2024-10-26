@@ -285,12 +285,7 @@ body {
     font-size: 2.5rem;
   }
 }
-@media (max-width: 600px) {
-  .navbar {
-    position: static; /* أو يمكنك استخدام fixed مع تغييرات أخرى */
-    width: 100%;
-    z-index: 1;
-  }
+
 
   .profile-img {
     max-width: 80%;
@@ -311,4 +306,39 @@ body {
 .fade-in {
   opacity: 1;
   transform: translateY(0); /* التحريك لأعلى */
+}
+/* تعديل الشريط العلوي والصورة الدائرية على الهاتف */
+@media (max-width: 600px) {
+  .navbar {
+    position: relative; /* تغيير position إلى relative */
+    width: 100%;
+    z-index: 1;
+  }
+
+  .hero-content {
+    padding-top: 80px; /* إضافة مساحة لتجنب تداخل الشريط العلوي مع المحتوى */
+  }
+
+  .profile-img {
+    width: 120px; /* تقليل عرض الصورة */
+    height: 120px;
+    max-width: 80%;
+    margin-top: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .nav-links {
+    flex-direction: column; /* تحويل الروابط للعرض العمودي */
+    align-items: center;
+    gap: 10px; /* تقليل الفجوة بين الروابط */
+  }
+
+  .hero-content h1 {
+    font-size: 2rem; /* تقليل حجم الخط */
+  }
+
+  .hero-content p {
+    font-size: 1rem; /* تقليل حجم الخط للنص */
+  }
 }
