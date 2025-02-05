@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة نتائج سنة 1 ع 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            margin: 5px;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .edit-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        /* إعدادات الطباعة */
+        @media print {
+            body {
+                font-family: Arial, sans-serif;
+            }
+            #studentForm, button, #searchInput {
+                display: none; /* إخفاء النموذج وأزرار الطباعة أثناء الطباعة */
+            }
+            h1 {
+                text-align: center;
+                font-size: 18px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            td:last-child, th:last-child {
+                display: none; /* إخفاء عمود الإجراءات أثناء الطباعة */
+            }
+        }
+    </style>
+    <!-- مكتبة SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- مكتبة jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <!-- مكتبة html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>إدارة نتائج سنة 1 ع 1</h1>
+
+    <!-- حقل بحث -->
+    <input type="text" id="searchInput" placeholder="ابحث باسم الطالب..." onkeyup="filterTable()">
+
+    <!-- نموذج إضافة طالب -->
+    <form id="studentForm">
+        <input type="text" id="studentName" placeholder="اسم الطالب" required>
+        <input type="number" id="examGrade" placeholder="نقطة الاختبار" required>
+        <input type="number" id="assignmentGrade" placeholder="نقطة الفرض" required>
+        <input type="number" id="assessmentGrade" placeholder="نقطة التقويم المستمر" required>
+        <button type="submit">إضافة الطالب</button>
+    </form>
+
+    <!-- زر حذف الكل -->
+    <button id="deleteAllBtn" onclick="deleteAllStudents()">حذف الكل</button>
+
+    <!-- جدول عرض الطلاب -->
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">اسم الطالب</th>
+                <th onclick="sortTable(1)">الاختبار</th>
+                <th onclick="sortTable(2)">الفرض</th>
+                <th onclick="sortTable(3)">التقويم المستمر</th>
+                <th onclick="sortTable(4)">المعدل</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- يتم إضافة السطور هنا -->
+        </tbody>
+    </table>
+
+    <!-- أزرار تصدير -->
+    <button onclick="exportToExcel()">تصدير إلى Excel</button>
+    <button onclick="exportToCSV()">تصدير إلى CSV</button>
+    <button onclick="exportToPDF()">تصدير إلى PDF</button>
+
+    <button onclick="window.print()">طباعة النتائج</button>
+
+    <script>
+        // استرجاع البيانات المخزنة من Local Storage عند تحميل الصفحة
+        window.onload = function() {
+            loadStudents('class1a');
+        };
+
+        // متغير لتخزين اسم الطالب الحالي أثناء التعديل
+        let editingStudentName = null;
+
+        // دالة لحساب المعدل
+        function calculateAverage(exam, assignment, assessment) {
+            return ((exam * 2 + assignment + assessment) / 4).toFixed(2);
+        }
+
+        // دالة لإضافة الطالب إلى الجدول
+        document.getElementById('studentForm').onsubmit = function(event) {
+            event.preventDefault();
+
+            if (editingStudentName) {
+                // إذا كان في وضع التعديل
+                const newName = document.getElementById('editStudentName').value;
+                const newExamGrade = parseFloat(document.getElementById('editExamGrade').value);
+                const newAssignmentGrade = parseFloat(document.getElementById('editAssignmentGrade').value);
+                const newAssessmentGrade = parseFloat(document.getElementById('editAssessmentGrade').value);
+
+                updateStudent(editingStudentName, newName, newExamGrade, newAssignmentGrade, newAssessmentGrade, 'class1a');
+
+                // إعادة تعيين النموذج وإخفاء زر التعديل
+                document.getElementById('studentForm').innerHTML = `
+                    <input type="text" id="studentName" placeholder="اسم الطالب" required>
+                    <input type="number" id="examGrade" placeholder="نقطة الاختبار" required>
+                    <input type="number" id="assignmentGrade" placeholder="نقطة الفرض" required>
+                    <input type="number" id="assessmentGrade" placeholder="نقطة التقويم المستمر" required>
+                    <button type="submit">إضافة الطالب</button>
+                `;
+                editingStudentName = null; // إعادة تعيين المتغير
+            } else {
+                // إذا كان في وضع الإضافة
+                const studentName = document.getElementById('studentName').value;
+                const examGrade = parseFloat(document.getElementById('examGrade').value);
+                const assignmentGrade = parseFloat(document.getElementById('assignmentGrade').value);
+                const assessmentGrade = parseFloat(document.getElementById('assessmentGrade').value);
+
+                if (!studentName || !examGrade || !assignmentGrade || !assessmentGrade) {
+                    alert("يرجى إدخال جميع البيانات.");
+                    return;
+                }
+
+                const average = calculateAverage(examGrade, assignmentGrade, assessmentGrade);
+
+                const student = {
+                    name: studentName,
+                    exam: examGrade,
+                    assignment: assignmentGrade,
+                    assessment: assessmentGrade,
+                    average: average
+                };
+
+                saveStudent(student, 'class1a');
+                renderStudents('class1a');
+                document.getElementById('studentForm').reset();
+            }
+        };
+
+        // دالة لحفظ الطالب في Local Storage
+        function saveStudent(student, className) {
+            let students = JSON.parse(localStorage.getItem(className)) || [];
+            students.push(student);
+            localStorage.setItem(className, JSON.stringify(students));
+        }
+
+        // دالة لتحميل الطلاب من Local Storage
+        function loadStudents(className) {
+            let students = JSON.parse(localStorage.getItem(className)) || [];
+            students.forEach(student => {
+                renderStudent(student);
+            });
+        }
+
+        // دالة لعرض الطلاب في الجدول
+        function renderStudents(className) {
+            let students = JSON.parse(localStorage.getItem(className)) || [];
+            const tbody = document.querySelector('#studentsTable tbody');
+            tbody.innerHTML = '';
+            students.forEach(student => {
+                renderStudent(student);
+            });
+        }
+
+        // دالة لعرض الطالب في الجدول
+        function renderStudent(student) {
+            const tbody = document.querySelector('#studentsTable tbody');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.exam}</td>
+                <td>${student.assignment}</td>
+                <td>${student.assessment}</td>
+                <td>${student.average}</td>
+                <td>
+                    <button class="delete-btn" onclick="deleteStudent('${student.name}', 'class1a')">حذف</button>
+                    <button class="edit-btn" onclick="editStudent('${student.name}', 'class1a')">تعديل</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        }
+
+        // دالة لحذف الطالب من Local Storage
+        function deleteStudent(studentName, className) {
+            if (confirm("هل أنت متأكد من أنك تريد حذف هذا الطالب؟")) {
+                let students = JSON.parse(localStorage.getItem(className)) || [];
+                students = students.filter(student => student.name !== studentName);
+                localStorage.setItem(className, JSON.stringify(students));
+                renderStudents(className);
+            }
+        }
+
+        // دالة لحذف جميع الطلاب من Local Storage
+        function deleteAllStudents() {
+            if (confirm("هل أنت متأكد من أنك تريد حذف جميع الطلاب؟")) {
+                localStorage.removeItem('class1a');
+                renderStudents('class1a');
+            }
+        }
+
+        // دالة لفرز الجدول حسب العمود
+        function sortTable(n) {
+            const table = document.getElementById("studentsTable");
+            let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            switching = true;
+            dir = "asc"; // تعيين الاتجاه الافتراضي (تصاعدي)
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (parseFloat(x.innerHTML) > parseFloat(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        // دالة لعرض نموذج التعديل
+        function editStudent(studentName, className) {
+            // البحث عن الطالب في localStorage
+            let students = JSON.parse(localStorage.getItem(className)) || [];
+            const studentToEdit = students.find(student => student.name === studentName);
+
+            if (studentToEdit) {
+                // تخزين اسم الطالب الحالي
+                editingStudentName = studentName;
+
+                // عرض النموذج مع ملء الحقول بالقيم الحالية
+                document.getElementById('studentForm').innerHTML = `
+                    <input type="text" id="editStudentName" placeholder="اسم الطالب" value="${studentToEdit.name}" required>
+                    <input type="number" id="editExamGrade" placeholder="نقطة الاختبار" value="${studentToEdit.exam}" required>
+                    <input type="number" id="editAssignmentGrade" placeholder="نقطة الفرض" value="${studentToEdit.assignment}" required>
+                    <input type="number" id="editAssessmentGrade" placeholder="نقطة التقويم المستمر" value="${studentToEdit.assessment}" required>
+                    <button type="submit">حفظ التعديلات</button>
+                `;
+            }
+        }
+
+        // دالة لتحديث بيانات الطالب
+        function updateStudent(oldName, newName, exam, assignment, assessment, className) {
+            let students = JSON.parse(localStorage.getItem(className)) || [];
+            const updatedStudents = students.map(student => {
+                if (student.name === oldName) {
+                    const average = calculateAverage(exam, assignment, assessment);
+                    return {
+                        name: newName,
+                        exam: exam,
+                        assignment: assignment,
+                        assessment: assessment,
+                        average: average
+                    };
+                }
+                return student;
+            });
+
+            // حفظ الطلاب المحدثين في Local Storage
+            localStorage.setItem(className, JSON.stringify(updatedStudents));
+
+            // إعادة رسم الجدول
+            renderStudents(className);
+        }
+
+        // دالة تصدير البيانات إلى XLSX
+        function exportToExcel() {
+            const table = document.getElementById('studentsTable');
+            let data = [];
+            const rows = table.querySelectorAll("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const cells = row.querySelectorAll("td, th");
+
+                let rowData = [];
+                for (let j = 0; j < cells.length - 1; j++) { // استبعاد عمود الإجراءات
+                    rowData.push(cells[j].innerText);
+                }
+                data.push(rowData);
+            }
+
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "نتائج 1 ع 1");
+            XLSX.writeFile(workbook, "نتائج_سنة_1آ.xlsx");
+        }
+
+        // دالة تصدير البيانات إلى CSV
+        function exportToCSV() {
+            const table = document.getElementById('studentsTable');
+            let csvContent = "data:text/csv;charset=utf-8,";
+            const rows = table.querySelectorAll("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const cells = row.querySelectorAll("td, th");
+
+                let rowData = [];
+                for (let j = 0; j < cells.length - 1; j++) { // استبعاد عمود الإجراءات
+                    rowData.push(cells[j].innerText);
+                }
+                csvContent += rowData.join(",") + "\n";
+            }
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "نتائج_سنة_1آ.csv");
+            document.body.appendChild(link);
+            link.click();
+        }
+
+        // دالة تصدير البيانات إلى PDF
+        function exportToPDF() {
+            html2canvas(document.querySelector("#studentsTable")).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save("نتائج_سنة_1آ.pdf");
+            });
+        }
+
+        // دالة البحث في الجدول
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("studentsTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                const nameCell = rows[i].getElementsByTagName("td")[0]; // عمود اسم الطالب
+                if (nameCell) {
+                    const txtValue = nameCell.textContent || nameCell.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
