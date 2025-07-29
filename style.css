@@ -194,6 +194,14 @@ body {
   border-color: var(--accent);
   outline: none;
 }
+#bac-results {
+  display: flex;
+  justify-content: center; /* للتمركز الأفقي */
+  align-items: center;     /* للتمركز العمودي */
+  min-height: 300px;       /* أو أي ارتفاع كافٍ */
+  flex-direction: column;  /* إن أردت ترتيب العناصر عموديًا */
+}
+
 
 .btn {
   display: inline-block;
