@@ -14,6 +14,12 @@
             color: #006;
             margin-bottom: 30px;
         }
+		.header {
+			text-align: center;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -22,8 +28,11 @@
             background-color: #50FA64;
             outline: none;
         }
-	
-        }
+		.table-container {
+			  width: 100%;
+			  overflow-x: auto;
+		}
+
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
@@ -36,6 +45,15 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+		@media (max-width: 600px) {
+			table, thead, tbody, th, td, tr {
+				font-size: 12px;
+			}
+			th, td {
+				padding: 4px;
+			}
+		}
+
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -45,14 +63,14 @@
 </head>
 <body>
     <div class="header">
-        الجمهورية الجزائرية الديمقراطية الشعبية<br>
-        وزارة التربية الوطنية<br>
-        الديوان الوطني للإمتحانات و المسابقات<br>
-		<br>مديرية التربية لولاية بني عباس<br>
-		<br>ثانوية الاخوة نهاري تبلبالة<br>
-        <h1>نتائج بكالوريا 2025</h1>
+		  <p>الجمهورية الجزائرية الديمقراطية الشعبية</p>
+		  <p>وزارة التربية الوطنية</p>
+		  <p>الديوان الوطني للإمتحانات و المسابقات</p>
+		  <p>مديرية التربية لولاية بني عباس</p>
+		  <p>ثانوية الاخوة نهاري تبلبالة</p>
+		  <h1>نتائج بكالوريا 2025</h1>
     </div>
-
+    <div class="table-container">
     <table>
         <thead>
             <tr>
@@ -349,6 +367,7 @@
             </tr>   
         </tbody>
     </table>
+	</div>
 	<script>
 	
 	function sortTable(n) {
