@@ -71,19 +71,20 @@
 		  <h1>نتائج بكالوريا 2025</h1>
     </div>
     <div class="table-container">
-    <table>
+    <table id="resultsTable">
         <thead>
-            <tr>
-                <th onclick="sortTable(0)">الترتيب العام</th>
-                <th onclick="sortTable(1)">رقم التسجيل</th>
-                <th onclick="sortTable(2)">اللقب</th>
-                <th onclick="sortTable(3)">الاسم</th>
-                <th onclick="sortTable(4)">تاريخ الميلاد</th>
-                <th onclick="sortTable(5)">المعدل</th>
-                <th onclick="sortTable(6)">الملاحظة</th>
-                <th onclick="sortTable(7)">القسم</th>
-            </tr>
-        </thead>
+			  <tr>
+				<th onclick="sortTable(0, this)">الترتيب العام ▲</th>
+				<th onclick="sortTable(1, this)">رقم التسجيل ▲</th>
+				<th onclick="sortTable(2, this)">اللقب ▲</th>
+				<th onclick="sortTable(3, this)">الاسم ▲</th>
+				<th onclick="sortTable(4, this)">تاريخ الميلاد ▲</th>
+				<th onclick="sortTable(5, this)">المعدل ▲</th>
+				<th onclick="sortTable(6, this)">الملاحظة ▲</th>
+				<th onclick="sortTable(7, this)">القسم ▲</th>
+			  </tr>
+		</thead>
+>
         <tbody>
             <tr>
                 <td>1</td>
@@ -369,55 +370,68 @@
     </table>
 	</div>
 	<script>
-	
-	function sortTable(n) {
-    var table = document.querySelector("table");
-    var switching = true;
-    var dir = "asc";
-    var switchcount = 0;
-    while (switching) {
-        switching = false;
-        var rows = table.rows;
-        for (var i = 1; i < (rows.length - 1); i++) {
-            var shouldSwitch = false;
-            var x = rows[i].getElementsByTagName("TD")[n];
-            var y = rows[i + 1].getElementsByTagName("TD")[n];
-            var xContent = x.textContent || x.innerText;
-            var yContent = y.textContent || y.innerText;
-            if (!isNaN(parseFloat(xContent)) && !isNaN(parseFloat(yContent))) {
-                xContent = parseFloat(xContent);
-                yContent = parseFloat(yContent);
-            }
-            if (dir == "asc") {
-                if (xContent > yContent) {
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (xContent < yContent) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
+		function sortTable(n, el) {
+			var table = document.querySelector("table");
+			var switching = true;
+			var dir = el.dataset.sortDir === "asc" ? "desc" : "asc";
+			el.dataset.sortDir = dir;
+			var switchcount = 0;
 
-    // تحديث الترتيب العام تلقائياً بعد الفرز
-    for (let i = 1; i < table.rows.length; i++) {
-        table.rows[i].cells[0].textContent = i;
-    }
-}
-</script>
+			// إعادة تعيين رؤوس الأعمدة
+			var ths = table.querySelectorAll("th");
+			ths.forEach((th, i) => {
+				th.textContent = th.textContent.replace(" ▲", "").replace(" ▼", "") + (i === n ? (dir === "asc" ? " ▲" : " ▼") : " ▲");
+				if (i !== n) th.removeAttribute("data-sort-dir");
+			});
+
+			while (switching) {
+				switching = false;
+				var rows = table.rows;
+				for (var i = 1; i < (rows.length - 1); i++) {
+					var shouldSwitch = false;
+					var x = rows[i].getElementsByTagName("TD")[n];
+					var y = rows[i + 1].getElementsByTagName("TD")[n];
+					var xContent = x.textContent || x.innerText;
+					var yContent = y.textContent || y.innerText;
+
+					if (!isNaN(parseFloat(xContent)) && !isNaN(parseFloat(yContent))) {
+						xContent = parseFloat(xContent);
+						yContent = parseFloat(yContent);
+					}
+
+					if (dir === "asc") {
+						if (xContent > yContent) {
+							shouldSwitch = true;
+							break;
+						}
+					} else {
+						if (xContent < yContent) {
+							shouldSwitch = true;
+							break;
+						}
+					}
+				}
+
+				if (shouldSwitch) {
+					rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					switching = true;
+					switchcount++;
+				} else {
+					if (switchcount === 0 && dir === "asc") {
+						dir = "desc";
+						switching = true;
+					}
+				}
+			}
+
+			// تحديث الترتيب العام تلقائيًا بعد الفرز
+			for (let i = 1; i < table.rows.length; i++) {
+				table.rows[i].cells[0].textContent = i;
+			}
+		}
+	</script>
+
+
 
 
 </body>
