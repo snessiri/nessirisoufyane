@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترتيب نتائج البكالوريا دورة 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #006;
+            margin-bottom: 30px;
+        }
+		table th:nth-child(5),
+		table td:nth-child(5) {
+			background-color: #F2024A ; /* يمكنك تغيير اللون حسب رغبتك */
+		}
+		table th:nth-child(4),
+		table td:nth-child(4) {
+			background-color: #2AEBD1 ; /* يمكنك تغيير اللون حسب رغبتك */
+		}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+		td:focus {
+            background-color: #ffffcc;
+            outline: none;
+        }
+	
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+		<br>مديرية التربية لولاية بني عباس<br>
+		<br>ثانوية الاخوة نهاري تبلبالة<br>
+        <h1>مقارنة بين نتائج البكالوريا والمعدل السنوي</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">الترتيب العام</th>
+                <th onclick="sortTable(1)">اللقب</th>
+                <th onclick="sortTable(2)">الاسم</th>
+				<th onclick="sortTable(3)">معدل البكالوريا</th>
+                <th onclick="sortTable(4)">المعدل السنوي</th>
+                <th onclick="sortTable(5)">الملاحظة</th>
+                <th onclick="sortTable(6)">القسم</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">1</td>
+               
+                <td contenteditable="true">سلام</td>
+                <td contenteditable="true">عائشة</td>
+				<td contenteditable="true">17.45</td>
+                <td contenteditable="true">16.57</td>
+                <td contenteditable="true">جيد جدا</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">2</td>               
+                <td contenteditable="true">سلام</td>
+                <td contenteditable="true">رحاب فاطيمة</td>   
+				<td contenteditable="true">14.80</td>
+                <td contenteditable="true">15.34</td>
+                <td contenteditable="true">جيد</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">3</td>               
+                <td contenteditable="true">زكراوي</td>
+                <td contenteditable="true">رحاب</td>
+				<td contenteditable="true">14.17</td>	
+                <td contenteditable="true">12.47</td>
+                <td contenteditable="true">جيد</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">4</td>              
+                <td contenteditable="true">دقيش</td>
+                <td contenteditable="true">غزلان</td>
+				<td contenteditable="true">13.73</td>	
+                <td contenteditable="true">12.83</td>
+                <td contenteditable="true">قريب من الجيد</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">5</td>               
+                <td contenteditable="true">خمبلوشي</td>
+                <td contenteditable="true">نور الهدى وردة</td>
+				<td contenteditable="true">13.33</td>
+                <td contenteditable="true">14.48</td>
+                <td contenteditable="true">قريب من الجيد</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">6</td>
+                <td contenteditable="true">موساوي</td>
+                <td contenteditable="true">العالية</td>
+				<td contenteditable="true">13.15</td>
+                <td contenteditable="true">12.48</td>
+                <td contenteditable="true">قريب من الجيد</td>
+                <td contenteditable="true">التسيير والاقتصاد</td>
+            </tr><tr>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">فضلاوي</td>
+                <td contenteditable="true">عبد السلام</td>
+				<td contenteditable="true">13.01</td>
+                <td contenteditable="true">12.48</td>
+                <td contenteditable="true">قريب من الجيد</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">8</td>          
+                <td contenteditable="true">بن سعد</td>
+                <td contenteditable="true">سارة</td> 
+				<td contenteditable="true">12.31</td>
+                <td contenteditable="true">11.66</td>
+                <td contenteditable="true">قريب من الجيد</td>
+                <td contenteditable="true">التسيير والاقتصاد</td>
+            </tr><tr>
+                <td contenteditable="true">9</td>            
+                <td contenteditable="true">حميدي</td>
+                <td contenteditable="true">نصيرة</td>
+				<td contenteditable="true">11.99</td>
+                <td contenteditable="true">12.99</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">10</td>             
+                <td contenteditable="true">فضلاوي</td>
+                <td contenteditable="true">حسنة</td>  
+				<td contenteditable="true">11.91</td>
+                <td contenteditable="true">11.73</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">التسيير والاقتصاد</td>
+            </tr><tr>
+                <td contenteditable="true">11</td>             
+                <td contenteditable="true">بودواية</td>
+                <td contenteditable="true">رياض</td> 
+				<td contenteditable="true">11.74</td>
+                <td contenteditable="true">11.81</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">12</td>  
+                <td contenteditable="true">أحمد لعلي</td>
+                <td contenteditable="true">بثينة</td>
+				<td contenteditable="true">11.50</td>
+                <td contenteditable="true">11.45</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">13</td>
+                <td contenteditable="true">بوعزة</td>
+                <td contenteditable="true">سناء</td> 
+				<td contenteditable="true">11.47</td>				
+                <td contenteditable="true">12.49</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">14</td>         
+                <td contenteditable="true">حميد</td>
+                <td contenteditable="true">محمد براهيم</td>
+				<td contenteditable="true">11.16</td>
+                <td contenteditable="true">10.62</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">التسيير والاقتصاد</td>
+            </tr><tr>
+                <td contenteditable="true">15</td>
+                <td contenteditable="true">فلقات</td>
+                <td contenteditable="true">مصطفى</td>
+				<td contenteditable="true">11.15</td>
+                <td contenteditable="true">10.47</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">16</td>
+                <td contenteditable="true">صديقي</td>
+                <td contenteditable="true">عواطف</td>
+				<td contenteditable="true">10.86</td>
+                <td contenteditable="true">12.98</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">17</td>
+                <td contenteditable="true">بايداة</td>
+                <td contenteditable="true">أحمد</td>
+				<td contenteditable="true">10.73</td>
+                <td contenteditable="true">10.65</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">18</td>
+                <td contenteditable="true">صادق</td>
+                <td contenteditable="true">رباب</td>
+				<td contenteditable="true">10.62</td>
+                <td contenteditable="true">10.54</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">19</td>
+                <td contenteditable="true">سعيدي</td>
+                <td contenteditable="true">شيماء</td>
+				<td contenteditable="true">10.58</td>
+                <td contenteditable="true">10.83</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">20</td>
+                <td contenteditable="true">سحاري</td>
+                <td contenteditable="true">ملاك</td>
+				<td contenteditable="true">10.47</td>
+                <td contenteditable="true">11.26</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">21</td>
+                <td contenteditable="true">بن حديد</td>
+                <td contenteditable="true">شيماء</td>
+				<td contenteditable="true">10.47</td>
+                <td contenteditable="true">11.09</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">لغات أجنبية</td>
+            </tr><tr>
+                <td contenteditable="true">22</td>
+                <td contenteditable="true">بايداه</td>
+                <td contenteditable="true">عائشة</td>
+				<td contenteditable="true">10.39</td>
+                <td contenteditable="true">10.71</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">23</td>
+                <td contenteditable="true">بلعيدي</td>
+                <td contenteditable="true">حياة</td>
+				<td contenteditable="true">10.37</td>
+                <td contenteditable="true">8.78</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">زكراوي</td>
+                <td contenteditable="true">مسعودة</td>
+				<td contenteditable="true">10.36</td>
+                <td contenteditable="true">9.96</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">25</td>
+                <td contenteditable="true">بلعيدي</td>
+                <td contenteditable="true">فاطمة الزهراء</td>
+				<td contenteditable="true">10.27</td>
+                <td contenteditable="true">9.41</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">آداب و فلسفة</td>
+            </tr><tr>
+                <td contenteditable="true">26</td>
+                <td contenteditable="true">حميدي</td>
+                <td contenteditable="true">فردوس شيماء</td>
+				<td contenteditable="true">10.17</td>
+                <td contenteditable="true">10.36</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">آداب و فلسفة</td>
+            </tr><tr>
+                <td contenteditable="true">27</td>
+                <td contenteditable="true">يحياوي</td>
+                <td contenteditable="true">فاطمة الزهراء</td>
+				<td contenteditable="true">10.15</td>
+                <td contenteditable="true">11.12</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">28</td>
+                <td contenteditable="true">زكراوي</td>
+                <td contenteditable="true">سعد</td>
+				<td contenteditable="true">10.14</td>
+                <td contenteditable="true">8.65</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">التسيير والاقتصاد</td>
+            </tr><tr>
+                <td contenteditable="true">29</td>
+                <td contenteditable="true">بودواية</td>
+                <td contenteditable="true">دعاء</td>
+				<td contenteditable="true">10.09</td>
+                <td contenteditable="true">9.59</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">30</td>
+                <td contenteditable="true">شيخاوي</td>
+                <td contenteditable="true">نبيل</td>
+				<td contenteditable="true">10.07</td>
+                <td contenteditable="true">9.57</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr><tr>
+                <td contenteditable="true">31</td>
+                <td contenteditable="true">فلقات</td>
+                <td contenteditable="true">نور الهدى</td>
+				<td contenteditable="true">10.04</td>
+                <td contenteditable="true">9.38</td>
+                <td contenteditable="true">مقبول</td>
+                <td contenteditable="true">العلوم التجريبية</td>
+            </tr>      
+        </tbody>
+    </table>
+	<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // اختيار كل خلايا الجدول
+        const cells = document.querySelectorAll('table td');
+        cells.forEach(cell => {
+            cell.setAttribute('contenteditable', 'true');
+        });
+    });
+	function sortTable(n) {
+    var table = document.querySelector("table");
+    var switching = true;
+    var dir = "asc";
+    var switchcount = 0;
+    while (switching) {
+        switching = false;
+        var rows = table.rows;
+        for (var i = 1; i < (rows.length - 1); i++) {
+            var shouldSwitch = false;
+            var x = rows[i].getElementsByTagName("TD")[n];
+            var y = rows[i + 1].getElementsByTagName("TD")[n];
+            var xContent = x.textContent || x.innerText;
+            var yContent = y.textContent || y.innerText;
+            if (!isNaN(parseFloat(xContent)) && !isNaN(parseFloat(yContent))) {
+                xContent = parseFloat(xContent);
+                yContent = parseFloat(yContent);
+            }
+            if (dir == "asc") {
+                if (xContent > yContent) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (xContent < yContent) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+
+    // تحديث الترتيب العام تلقائياً بعد الفرز
+    for (let i = 1; i < table.rows.length; i++) {
+        table.rows[i].cells[0].textContent = i;
+    }
+}
+</script>
+
+
+</body>
+</html>
