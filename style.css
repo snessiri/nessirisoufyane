@@ -211,6 +211,21 @@ body {
   background: var(--secondary);
   transform: translateY(-2px);
 }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #006699;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #004466;
+}
 
 .social-links {
   display: flex;
