@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترتيب نتائج البكالوريا دورة 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #006;
+            margin-bottom: 30px;
+        }
+		.header {
+			text-align: center;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+		td:focus {
+            background-color: #50FA64;
+            outline: none;
+        }
+		.table-container {
+			  width: 100%;
+			  overflow-x: auto;
+		}
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+		@media (max-width: 600px) {
+			table, thead, tbody, th, td, tr {
+				font-size: 12px;
+			}
+			th, td {
+				padding: 4px;
+			}
+		}
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+		  <p>الجمهورية الجزائرية الديمقراطية الشعبية</p>
+		  <p>وزارة التربية الوطنية</p>
+		  <p>الديوان الوطني للإمتحانات و المسابقات</p>
+		  <p>مديرية التربية لولاية بني عباس</p>
+		  <p>ثانوية الاخوة نهاري تبلبالة</p>
+		  <h1>نتائج بكالوريا 2025</h1>
+    </div>
+    <div class="table-container">
+    <table id="resultsTable">
+        <thead>
+			  <tr>
+				<th onclick="sortTable(0, this)">الترتيب العام ▲</th>
+				<th onclick="sortTable(1, this)">رقم التسجيل ▲</th>
+				<th onclick="sortTable(2, this)">اللقب ▲</th>
+				<th onclick="sortTable(3, this)">الاسم ▲</th>
+				<th onclick="sortTable(4, this)">تاريخ الميلاد ▲</th>
+				<th onclick="sortTable(5, this)">المعدل ▲</th>
+				<th onclick="sortTable(6, this)">الملاحظة ▲</th>
+				<th onclick="sortTable(7, this)">القسم ▲</th>
+			  </tr>
+		</thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>38609409</td>
+                <td>سلام</td>
+                <td>عائشة</td>
+                <td>2007-09-19</td>
+                <td>17.45</td>
+                <td>جيد جدا</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>2</td>
+                <td>38609004</td>
+                <td>سلام</td>
+                <td>رحاب فاطيمة</td>
+                <td>2007-09-21</td>
+                <td>14.80</td>
+                <td>جيد</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>3</td>
+                <td>38609605</td>
+                <td>زكراوي</td>
+                <td>رحاب</td>
+                <td>2007-02-01</td>
+                <td>14.17</td>
+                <td>جيد</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>4</td>
+                <td>38609609</td>
+                <td>دقيش</td>
+                <td>غزلان</td>
+                <td>2007-06-17</td>
+                <td>13.73</td>
+                <td>قريب من الجيد</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>5</td>
+                <td>38609011</td>
+                <td>خمبلوشي</td>
+                <td>نور الهدى وردة</td>
+                <td>2007-01-29</td>
+                <td>13.33</td>
+                <td>قريب من الجيد</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>6</td>
+                <td>38609202</td>
+                <td>موساوي</td>
+                <td>العالية</td>
+                <td>2007-05-31</td>
+                <td>13.15</td>
+                <td>قريب من الجيد</td>
+                <td>التسيير والاقتصاد</td>
+            </tr><tr>
+                <td>7</td>
+                <td>38609608</td>
+                <td>فضلاوي</td>
+                <td>عبد السلام</td>
+                <td>2007-02-04</td>
+                <td>13.01</td>
+                <td>قريب من الجيد</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>8</td>
+                <td>38609205</td>
+                <td>بن سعد</td>
+                <td>سارة</td>
+                <td>2007-03-30</td>
+                <td>12.31</td>
+                <td>قريب من الجيد</td>
+                <td>التسيير والاقتصاد</td>
+            </tr><tr>
+                <td>9</td>
+                <td>38609611</td>
+                <td>حميدي</td>
+                <td>نصيرة</td>
+                <td>2006-08-24</td>
+                <td>11.99</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>10</td>
+                <td>38609203</td>
+                <td>فضلاوي</td>
+                <td>حسنة</td>
+                <td>2007-06-09</td>
+                <td>11.91</td>
+                <td>مقبول</td>
+                <td>التسيير والاقتصاد</td>
+            </tr><tr>
+                <td>11</td>
+                <td>38609606</td>
+                <td>بودواية</td>
+                <td>رياض</td>
+                <td>2007-02-14</td>
+                <td>11.74</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>12</td>
+                <td>38609406</td>
+                <td>سعيدي</td>
+                <td>شيماء</td>
+                <td>2007-05-12</td>
+                <td>11.58</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>13</td>
+                <td>38609001</td>
+                <td>أحمد لعلي</td>
+                <td>بثينة</td>
+                <td>2006-09-24</td>
+                <td>11.50</td>
+                <td>مقبول</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>14</td>
+                <td>38609607</td>
+                <td>بوعزة</td>
+                <td>سناء</td>
+                <td>2007-11-20</td>
+                <td>11.47</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>15</td>
+                <td>38609210</td>
+                <td>حميد</td>
+                <td>محمد براهيم</td>
+                <td>2006-09-03</td>
+                <td>11.16</td>
+                <td>مقبول</td>
+                <td>التسيير والاقتصاد</td>
+            </tr><tr>
+                <td>16</td>
+                <td>38609610</td>
+                <td>فلقات</td>
+                <td>مصطفى</td>
+                <td>2007-07-06</td>
+                <td>11.15</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>17</td>
+                <td>38609007</td>
+                <td>صديقي</td>
+                <td>عواطف</td>
+                <td>2007-09-28</td>
+                <td>10.86</td>
+                <td>مقبول</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>18</td>
+                <td>38609601</td>
+                <td>بايداة</td>
+                <td>أحمد</td>
+                <td>2006-06-27</td>
+                <td>10.73</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>19</td>
+                <td>38609003</td>
+                <td>صادق</td>
+                <td>رباب</td>
+                <td>2007-01-09</td>
+                <td>10.62</td>
+                <td>مقبول</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>20</td>
+                <td>38609415</td>
+                <td>سحاري</td>
+                <td>ملاك</td>
+                <td>2005-09-11</td>
+                <td>10.47</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>21</td>
+                <td>38609005</td>
+                <td>بن حديد</td>
+                <td>شيماء</td>
+                <td>2006-05-06</td>
+                <td>10.47</td>
+                <td>مقبول</td>
+                <td>لغات أجنبية</td>
+            </tr><tr>
+                <td>22</td>
+                <td>38609408</td>
+                <td>بايداه</td>
+                <td>عائشة</td>
+                <td>2006-04-25</td>
+                <td>10.39</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>23</td>
+                <td>38609603</td>
+                <td>بلعيدي</td>
+                <td>حياة</td>
+                <td>2007-02-01</td>
+                <td>10.37</td>
+                <td>مقبول</td>
+                <td>تقني رياضي هندسة الطرائق</td>
+            </tr><tr>
+                <td>24</td>
+                <td>38609414</td>
+                <td>زكراوي</td>
+                <td>مسعودة</td>
+                <td>2007-02-24</td>
+                <td>10.36</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>25</td>
+                <td>38608811</td>
+                <td>بلعيدي</td>
+                <td>فاطمة الزهراء</td>
+                <td>2007-04-08</td>
+                <td>10.27</td>
+                <td>مقبول</td>
+                <td>آداب و فلسفة</td>
+            </tr><tr>
+                <td>26</td>
+                <td>38608814</td>
+                <td>حميدي</td>
+                <td>فردوس شيماء</td>
+                <td>2006-08-13</td>
+                <td>10.17</td>
+                <td>مقبول</td>
+                <td>آداب و فلسفة</td>
+            </tr><tr>
+                <td>27</td>
+                <td>38609206</td>
+                <td>زكراوي</td>
+                <td>سعد</td>
+                <td>2007-05-19</td>
+                <td>10.14</td>
+                <td>مقبول</td>
+                <td>التسيير والاقتصاد</td>
+            </tr><tr>
+                <td>28</td>
+                <td>38609411</td>
+                <td>يحياوي</td>
+                <td>فاطمة الزهراء</td>
+                <td>2005-03-14</td>
+                <td>10.11</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>29</td>
+                <td>38609404</td>
+                <td>بودواية</td>
+                <td>دعاء</td>
+                <td>2007-06-19</td>
+                <td>10.09</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>30</td>
+                <td>38609416</td>
+                <td>شيخاوي</td>
+                <td>نبيل</td>
+                <td>2007-10-17</td>
+                <td>10.07</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr><tr>
+                <td>31</td>
+                <td>38609417</td>
+                <td>فلقات</td>
+                <td>نور الهدى</td>
+                <td>2007-01-11</td>
+                <td>10.04</td>
+                <td>مقبول</td>
+                <td>العلوم التجريبية</td>
+            </tr>   
+        </tbody>
+    </table>
+	</div>
+	<script>
+		function sortTable(n, el) {
+			var table = document.querySelector("table");
+			var switching = true;
+			var dir = el.dataset.sortDir === "asc" ? "desc" : "asc";
+			el.dataset.sortDir = dir;
+			var switchcount = 0;
+
+			// إعادة تعيين رؤوس الأعمدة
+			var ths = table.querySelectorAll("th");
+			ths.forEach((th, i) => {
+				th.textContent = th.textContent.replace(" ▲", "").replace(" ▼", "") + (i === n ? (dir === "asc" ? " ▲" : " ▼") : " ▲");
+				if (i !== n) th.removeAttribute("data-sort-dir");
+			});
+
+			while (switching) {
+				switching = false;
+				var rows = table.rows;
+				for (var i = 1; i < (rows.length - 1); i++) {
+					var shouldSwitch = false;
+					var x = rows[i].getElementsByTagName("TD")[n];
+					var y = rows[i + 1].getElementsByTagName("TD")[n];
+					var xContent = x.textContent || x.innerText;
+					var yContent = y.textContent || y.innerText;
+
+					if (!isNaN(parseFloat(xContent)) && !isNaN(parseFloat(yContent))) {
+						xContent = parseFloat(xContent);
+						yContent = parseFloat(yContent);
+					}
+
+					if (dir === "asc") {
+						if (xContent > yContent) {
+							shouldSwitch = true;
+							break;
+						}
+					} else {
+						if (xContent < yContent) {
+							shouldSwitch = true;
+							break;
+						}
+					}
+				}
+
+				if (shouldSwitch) {
+					rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					switching = true;
+					switchcount++;
+				} else {
+					if (switchcount === 0 && dir === "asc") {
+						dir = "desc";
+						switching = true;
+					}
+				}
+			}
+
+			// تحديث الترتيب العام تلقائيًا بعد الفرز
+			for (let i = 1; i < table.rows.length; i++) {
+				table.rows[i].cells[0].textContent = i;
+			}
+		}
+	</script>
+</body>
+</html>
