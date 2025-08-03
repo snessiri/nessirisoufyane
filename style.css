@@ -21,14 +21,12 @@ footer {
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: 'Crimson Text', Georgia, serif;
+  font-family: 'Cairo', 'Amiri', 'Crimson Text', Georgia, serif;
   line-height: 1.6;
   color: var(--dark);
   background-color: #fff8f0;
 }
-
 .navbar {
   position: fixed;
   top: 0;
@@ -230,6 +228,7 @@ body {
 .btn:hover {
   background: var(--secondary);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .social-links {
   display: flex;
@@ -277,12 +276,6 @@ body {
   bottom: -30px;
   left: 5px;            /* وضع العلامة في اليسار بدلاً من اليمين */
   opacity: 0.3;
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 768px) {
   .about-grid {
