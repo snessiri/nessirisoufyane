@@ -11,7 +11,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary);
+  color: white;
+  margin-top: 2rem;
+}
 html {
   scroll-behavior: smooth;
 }
