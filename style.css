@@ -278,6 +278,11 @@ body {
   opacity: 0.3;
 }
 @media (max-width: 768px) {
+   /* القائمة العلوية */
+  .navbar {
+    position: relative;
+    padding: 0.5rem;
+  }
   .about-grid {
     grid-template-columns: 1fr;
   }
